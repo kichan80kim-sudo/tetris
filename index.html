@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <title>블록라인 | 테트리스</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <div>
+          <p class="eyebrow">ARCADE / 01</p>
+          <h1>블록라인</h1>
+        </div>
+      </div>
+      <div class="status-badge"><span class="status-dot" aria-hidden="true"></span><span id="headerStatus">준비 완료</span></div>
+    </header>
+
+    <section class="game-layout" aria-label="테트리스 게임">
+      <section class="play-section">
+        <div class="play-heading">
+          <div>
+            <p class="eyebrow">LIVE BOARD</p>
+            <h2>라인을 완성하세요</h2>
+          </div>
+          <p class="keyboard-hint"><kbd>P</kbd> 일시정지</p>
+        </div>
+
+        <div class="board-frame">
+          <div id="board" class="board" role="grid" aria-label="10칸 너비, 20칸 높이의 게임판"></div>
+          <div id="gameOverlay" class="game-overlay is-visible" aria-live="polite">
+            <div class="overlay-card">
+              <p class="eyebrow">READY WHEN YOU ARE</p>
+              <h3 id="overlayTitle">게임 준비 완료</h3>
+              <p id="overlayMessage">블록을 쌓아 빈틈없는 라인을 만들어 보세요.</p>
+              <button id="overlayAction" class="button button-primary" type="button">게임 시작</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-controls" aria-label="터치 조작">
+          <button class="control-button" type="button" data-control="left" aria-label="왼쪽 이동">←</button>
+          <button class="control-button control-button-tall" type="button" data-control="rotate" aria-label="시계 방향 회전">↻</button>
+          <button class="control-button" type="button" data-control="right" aria-label="오른쪽 이동">→</button>
+          <button class="control-button" type="button" data-control="down" aria-label="빠르게 내리기">↓</button>
+          <button class="control-button control-button-wide" type="button" data-control="drop" aria-label="즉시 내리기">DROP</button>
+        </div>
+      </section>
+
+      <aside class="side-panel">
+        <div class="next-card panel-card">
+          <div class="card-label"><span>다음 블록</span><span class="label-index">NEXT</span></div>
+          <div id="nextGrid" class="next-grid" role="img" aria-label="다음에 나올 블록"></div>
+        </div>
+
+        <div class="stats-card panel-card">
+          <div class="stat-row stat-row-highlight">
+            <span>점수</span>
+            <strong id="scoreValue">000000</strong>
+          </div>
+          <div class="stat-row">
+            <span>지운 줄</span>
+            <strong id="linesValue">000</strong>
+          </div>
+          <div class="stat-row">
+            <span>레벨</span>
+            <strong id="levelValue">01</strong>
+          </div>
+          <div class="progress-wrap" aria-label="다음 레벨까지 진행률">
+            <div class="progress-meta"><span>다음 레벨</span><span id="progressLabel">0 / 10</span></div>
+            <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+          </div>
+        </div>
+
+        <div class="controls-card panel-card">
+          <div class="card-label"><span>조작 방법</span><span class="label-index">KEYS</span></div>
+          <div class="key-list">
+            <div class="key-row"><span class="key-pair"><kbd>←</kbd><kbd>→</kbd></span><span>이동</span></div>
+            <div class="key-row"><span class="key-pair"><kbd>↑</kbd><kbd>Z</kbd></span><span>회전</span></div>
+            <div class="key-row"><span class="key-pair"><kbd>↓</kbd></span><span>빠르게 내리기</span></div>
+            <div class="key-row"><span class="key-pair"><kbd>SPACE</kbd></span><span>즉시 내리기</span></div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button id="pauseButton" class="button button-secondary" type="button">일시정지</button>
+          <button id="restartButton" class="button button-primary" type="button">다시 시작</button>
+        </div>
+        <p class="tip"><span class="tip-icon" aria-hidden="true">✦</span> 한 번에 4줄을 지우면 <strong>테트리스!</strong></p>
+      </aside>
+    </section>
+
+    <footer class="footer-note"><span>BLOCKLINE / CLASSIC MODE</span><span>10 × 20 BOARD</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
